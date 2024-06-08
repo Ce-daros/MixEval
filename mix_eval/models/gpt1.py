@@ -9,7 +9,7 @@ class GPT_1(BaseModel):
         self.attn_implementation = None # If use default, set to None
 
         self.model = self.build_model().float32()
-        self.model_max_len = self.model.config.max_position_embeddings 
+        self.model_max_len = self.model.config.n_ctx
         self.tokenizer = self.build_tokenizer()
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_input_length_closeend = min(
